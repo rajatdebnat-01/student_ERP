@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Facebook-Like Profile</title>
+    <style>
+        /* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cover-photo img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    margin-top: -100px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.profile-details {
+    margin-left: 20px;
+}
+
+.profile-details h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-details p {
+    color: #606770;
+}
+
+.profile-details button {
+    padding: 10px 20px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.profile-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f2f5;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.nav-link {
+    color: #1877f2;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.friends-section, .posts-section {
+    padding: 20px;
+}
+
+.friends-section h3, .posts-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.friend-list {
+    display: flex;
+    gap: 20px;
+}
+
+.friend {
+    text-align: center;
+}
+
+.friend img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.posts-section .post {
+    background-color: #f0f2f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.posts-section .post button {
+    margin-top: 10px;
+    background-color: #1877f2;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Cover Photo -->
+        <div class="cover-photo">
+            <img src="<%= user.imgPath %>" alt="Cover Photo">
+        </div>
+        
+        <!-- Profile Section -->
+        <div class="profile-info">
+            <div class="profile-picture">
+                <img src="<%= user.imgPath %>" alt="Profile Picture">
+            </div>
+            <div class="profile-details">
+                <h2 id="profile-name"><%= user.username %></h2>
+                <p id="profile-bio">Student</p>
+                <button id="edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="profile-nav">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#friends" class="nav-link">Friends</a>
+            <a href="#posts" class="nav-link">Posts</a>
+        </div>
+
+        <!-- Friends Section -->
+        <div class="friends-section" id="friends">
+            <h3>Friends</h3>
+            <div class="friend-list">
+                <div class="friend">
+                    <img src="friend1.jpg" alt="Friend 1">
+                    <p>Jane Smith</p>
+                </div>
+                <div class="friend">
+                    <img src="friend2.jpg" alt="Friend 2">
+                    <p>Mike Johnson</p>
+                </div>
+                <!-- Add more friends as needed -->
+            </div>
+        </div>
+
+        <!-- Posts Section -->
+        <div class="posts-section" id="posts">
+            <h3>Posts</h3>
+            <div class="post">
+                <p id="post-content">Just started a new project on AI! 🚀 #excited</p>
+                <button id="edit-post-btn">Edit Post</button>
+            </div>
+        </div>
+    </div>
+<script>
+    // Edit Profile Info
+    document.getElementById('edit-profile-btn').addEventListener('click', function() {
+        const newName = prompt('Enter your name:', document.getElementById('profile-name').textContent);
+        const newBio = prompt('Enter your bio:', document.getElementById('profile-bio').textContent);
+    
+        if (newName) document.getElementById('profile-name').textContent = newName;
+        if (newBio) document.getElementById('profile-bio').textContent = newBio;
+    });
+    
+    // Edit Post Content
+    document.getElementById('edit-post-btn').addEventListener('click', function() {
+        const newPostContent = prompt('Edit your post:', document.getElementById('post-content').textContent);
+    
+        if (newPostContent) document.getElementById('post-content').textContent = newPostContent;
+    });
+</script>
+</body>
+</html>

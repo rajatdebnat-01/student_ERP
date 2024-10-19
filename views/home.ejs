@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="home.css">
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Student-Dashboard</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="<%= user.imgPath %>" alt="">
+            </div>
+
+            <span class="logo_name">
+                <%= user.name %>
+            </span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="/home">
+                        <i class='bx bxs-home'></i>
+                        <span class="link-name">Dahsboard</span>
+                    </a></li>
+                <li><a href="/home/user">
+                        <i class='bx bxs-user-circle'></i>
+                        <span class="link-name">User</span>
+                    </a></li>
+                <li><a href="/home/notice">
+                        <i class='bx bxs-bell'></i>
+                        <span class="link-name">Notice</span>
+                    </a></li>
+                <li><a href="/home/payment">
+                        <i class='bx bx-rupee'></i>
+                        <span class="link-name">Payment</span>
+                    </a></li>
+                <li><a href="/home/info">
+                        <i class='bx bxs-info-circle'></i>
+                        <span class="link-name">Information</span>
+                    </a></li>
+
+            </ul>
+
+            <ul class="logout-mode">
+                <li><a href="/logout">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Logout</span>
+                    </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Dark Mode</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+
+            </div>
+
+            <!--<img src="images/profile.jpg" alt="">-->
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <a style="text-decoration: none; display: flex;flex-direction: column;align-items: center;justify-content: center;"
+                            href="https://wbchse.wb.gov.in/student/scholarship/">
+                            <i class='bx bxs-graduation'></i>
+                            <h1 class="text">Scholarship</h1>
+                        </a>
+                    </div>
+                    <div class="box box2">
+                        <i class='bx bxs-spreadsheet'></i>
+                        <h1 class="text">Marksheet</h1>
+                    </div>
+                    <div class="box box3">
+                        <i class='bx bx-rupee'></i>
+                        <span class="text">Payment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Current Routine</span>
+                </div>
+
+                <div class="activity-data">
+                    <table id="routine-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Teacher</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="routine-body">
+                            <tr>
+                                <td>9:00 AM - 10:00 AM</td>
+                                <td>Mathematics</td>
+                                <td>Mr. Johnson</td>
+
+                            </tr>
+                            <tr>
+                                <td>10:00 AM - 11:00 AM</td>
+                                <td>Science</td>
+                                <td>Ms. Brown</td>
+
+                            </tr>
+                            <tr>
+                                <td>11:00 AM - 12:00 PM</td>
+                                <td>History</td>
+                                <td>Mr. Smith</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const body = document.querySelector("body"),
+            modeToggle = body.querySelector(".mode-toggle");
+        sidebar = body.querySelector("nav");
+        sidebarToggle = body.querySelector(".sidebar-toggle");
+
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark") {
+            body.classList.toggle("dark");
+        }
+
+        let getStatus = localStorage.getItem("status");
+        if (getStatus && getStatus === "close") {
+            sidebar.classList.toggle("close");
+        }
+
+        modeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                localStorage.setItem("mode", "dark");
+            } else {
+                localStorage.setItem("mode", "light");
+            }
+        });
+
+        sidebarToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+            if (sidebar.classList.contains("close")) {
+                localStorage.setItem("status", "close");
+            } else {
+                localStorage.setItem("status", "open");
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

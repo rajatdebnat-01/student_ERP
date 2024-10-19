@@ -1,0 +1,198 @@
+  /* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+ }
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to left top, #8257e3, #2894ff, #3cbefa, #9adfee, #eff8f7);
+}
+
+.login-container {
+    width: 500px;
+    padding: 20px;
+   
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+ 
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 60px;
+    margin-top: 5px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    font-size: 25px;
+    
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    height: 45px;
+    background-color: #3336d9;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all .3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #228a25;
+}
+ .login-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0 6px 10px rgba(8, 7, 7, 0.2); 
+ }
+ p{
+    margin-top: 3px;
+    font-size: 30px;
+ } */
+  /* General Styles */
+  /* General Styles */
+  body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      /* Dark background */
+      color: #f1f1f1;
+      /* Light text color */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+
+  /* Container for login form */
+  .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+  }
+
+  /* Login box */
+  .login-box {
+      background-color: #333;
+      /* Darker background for the login box */
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      /* Darker shadow */
+      text-align: center;
+      width: 350px;
+  }
+
+  /* Form title */
+  .login-box h2 {
+      color: #4CAF50;
+      /* Accent green color */
+      font-size: 28px;
+      margin-bottom: 30px;
+      font-weight: bold;
+  }
+
+  /* Input group styling */
+  .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+  }
+
+  .input-group label {
+      color: #f1f1f1;
+      /* Light color for labels */
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
+  }
+
+  .input-group input {
+      width: 93%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #555;
+      /* Darker border */
+      border-radius: 5px;
+      background-color: #444;
+      /* Dark input background */
+      color: #f1f1f1;
+      /* Light text color for inputs */
+      transition: border-color 0.3s ease;
+  }
+
+  .input-group input:focus {
+      border-color: #4CAF50;
+      /* Green border on focus */
+      background-color: #555;
+      /* Slightly lighter background on focus */
+      outline: none;
+  }
+
+  /* Button styling */
+  button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      /* Green button */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+      background-color: #45a049;
+      /* Slightly darker green on hover */
+  }
+
+  /* Error message styling */
+  .error-message {
+      color: #ff4d4d;
+      /* Red error message */
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+  }
+
+  /* Add subtle shadows */
+  .login-box {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      /* Dark shadow */
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 600px) {
+      .login-box {
+          width: 90%;
+      }
+  }
