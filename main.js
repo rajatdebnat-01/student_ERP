@@ -74,7 +74,8 @@ app.post('/signup', upload.single("image"), (req, res) => {
     address: req.body.address,
     stream: req.body.stream,
     exp: req.body.exp,
-    college: req.body.col
+    college: req.body.col,
+    
   });
 
   newImage.save()

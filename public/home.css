@@ -21,6 +21,7 @@
     --title-icon-color: #fff;
     --table-backround: #fff;
     --table-color: black;
+    --marksheet-color: rgb(222, 222, 216);
     /* ====== Transition ====== */
     --tran-05: all 0.5s ease;
     --tran-03: all 0.3s ease;
@@ -44,6 +45,7 @@ body.dark{
     --title-icon-color: #CCC;
     --table-backround: #3A3B3C;
     --table-color: #fff;
+    --marksheet-color: rgb(54, 52, 52);
 }
 /* === Custom Scroll Bar CSS === */
 ::-webkit-scrollbar {
@@ -565,4 +567,50 @@ td button:hover {
         left: 0;
         width: 100%;
     }
+}
+.marksheet{
+    border: none;
+    border-radius: 8px;
+    height: 80vh;
+    width: 80vw;
+    position: absolute;
+    left: 8%;
+    top: 10%;
+    background-color: var(--marksheet-color);
+    display: none;
+    transition: all .1s ease-in;
+    opacity: 0;
+}
+.marksheet > i{
+    color: var(--text-color);
+    font-size: 2rem;
+    position: absolute;
+    right: 0;
+    margin: 2px;
+    cursor: pointer;
+    
+}
+.marksheet img{
+    width: 50%;
+    height: 400px;
+    
+}
+.download{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+    flex-direction: column;
+
+}
+.download a button{
+    margin: 5%;
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 900;
+    color: green;
 }

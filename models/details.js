@@ -13,7 +13,8 @@ const details = new mongoose.Schema({
     stream: String,
     address: String,
     exp: String,
-    college: String
+    college: String,
+    
 
     
 });

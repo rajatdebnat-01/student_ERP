@@ -84,6 +84,13 @@
 
             <!--<img src="images/profile.jpg" alt="">-->
         </div>
+        <div class="marksheet">
+            <i class='bx bx-x'></i>
+            <div class="download">
+                <img src="<%= user.imgPath %>" alt="">
+                <a href="<%= user.imgPath %>" download=""><button>Download</button></a>
+            </div>
+        </div>
 
         <div class="dash-content">
             <div class="overview">
@@ -185,6 +192,17 @@
             } else {
                 localStorage.setItem("status", "open");
             }
+        })
+        let marksheet = document.querySelector(".marksheet");
+        const box = document.querySelector(".box2");
+        const cross = document.querySelector(".marksheet>i");
+
+        box.addEventListener("click", () => {
+            marksheet.setAttribute("style", "display:block;opacity:1;")
+        })
+
+        cross.addEventListener("click", () => {
+            marksheet.setAttribute("style", "display:none;opacity:0;")
         })
 
 
