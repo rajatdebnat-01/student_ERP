@@ -5,10 +5,11 @@ const details = new mongoose.Schema({
 
     userId: String,
     password: String,
-    roll:Number,
+    roll:String,
     class:String,
     fees:String,
     imgPath: String,
+    res: String,
     name:String,
     stream: String,
     address: String,

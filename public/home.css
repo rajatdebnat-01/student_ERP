@@ -572,9 +572,10 @@ td button:hover {
     border: none;
     border-radius: 8px;
     height: 80vh;
-    width: 80vw;
+    width: 60vw;
+    max-width: 60vw;
     position: absolute;
-    left: 8%;
+    left: 15%;
     top: 10%;
     background-color: var(--marksheet-color);
     display: none;

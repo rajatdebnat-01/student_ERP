@@ -41,6 +41,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+const cpUpload = upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'image2', maxCount: 1 }])
 
 // const storage = multer.memoryStorage();
 // const upload = multer({ storage: storage });
@@ -59,7 +60,7 @@ app.get('/signup', (req, res) => {
 })
 
 //signup details sending route
-app.post('/signup', upload.single("image"), (req, res) => {
+app.post('/signup', cpUpload, (req, res) => {
   console.log(req.body);
   console.log(req.file);
 
@@ -70,11 +71,12 @@ app.post('/signup', upload.single("image"), (req, res) => {
     roll: req.body.roll,
     class: req.body.class,
     fees: req.body.fees,
-    imgPath: '/uploads/' + req.file.filename,
+    imgPath: '/uploads/' + req.files.image1[0].filename,
+    res: '/uploads/' + req.files.image2[0].filename,
     address: req.body.address,
     stream: req.body.stream,
     exp: req.body.exp,
-    college: req.body.col,
+    college: req.body.col
     
   });
 
