@@ -10,7 +10,8 @@ const mysql = require("./dbConnect/sql");
 const mongo = require("./dbConnect/mongo");
 const storage = require("./multer/multer")
 const bodyParser = require('body-parser');
-
+const backend = require('./Querys/backend');
+const data = require("./Querys/data");
 const app = express();
 const port = 3000;
 
@@ -33,53 +34,8 @@ const cpUpload = upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'image2
 
 //sign up things
 
-const backend = (req,res) => {
-  console.log(req.body);
-  console.log(req.file);
 
-  const newImage = new Details({
-    userId: req.body.username,
-    name: req.body.name,
-    password: req.body.password,
-    roll: req.body.roll,
-    class: req.body.class,
-    fees: req.body.fees,
-    imgPath: '/uploads/' + req.files.image1[0].filename,
-    res: '/uploads/' + req.files.image2[0].filename,
-    address: req.body.address,
-    stream: req.body.stream,
-    exp: req.body.exp,
-    college: req.body.col
 
-  });
-
-  newImage.save()
-    .then(() => {
-      res.redirect('/')
-    })
-    .catch((e) => {
-      console.log(e)
-    });
-}
-const data = (req,res) => {
-  var first = req.body.first;
-  var second = req.body.second;
-  var third = req.body.third;
-  var fourth = req.body.fourth;
-  var fifth = req.body.fifth;
-  var sixth = req.body.sixth;
-  var seventh = req.body.seventh;
-  var eighth = req.body.eighth;
-
-  var sql = `INSERT INTO subject_master (id, 1st,2nd,3rd,4th,5th,6th,7th,8th) VALUES ('', '${first}','${second}','${third}','${fourth}','${fifth}','${sixth}','${seventh}','${eighth}')`;
-  
-  mysql.query(sql, function (err, result) {
-    if (err) console.log(err);
-    
-    console.log("1 record inserted");
-    res.send("data is saved");
-  })
-}
 
 
 // const storage = multer.memoryStorage();
