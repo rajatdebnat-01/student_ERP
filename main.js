@@ -75,6 +75,7 @@ const data = (req,res) => {
   
   mysql.query(sql, function (err, result) {
     if (err) console.log(err);
+    
     console.log("1 record inserted");
     res.send("data is saved");
   })
