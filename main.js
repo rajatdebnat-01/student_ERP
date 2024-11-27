@@ -61,15 +61,15 @@ app.get('/signup', (req, res) => {
 
 //signup details sending route
 app.post('/signup', cpUpload, (req, res) => {
-  backend(req,res);
+  backend(req, res);
 });
 
 app.get('/data', cpUpload, (req, res) => {
   res.render('class');
 });
 app.post('/data', cpUpload, (req, res) => {
- 
-  data(req,res);
+
+  data(req, res);
 });
 
 //login details send route
